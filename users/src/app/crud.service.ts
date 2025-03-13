@@ -13,4 +13,8 @@ base_url: string = "http://localhost:3000/users";
   getData(){
     return this.http.get<Iuser[]>(this.base_url);
   }
+
+  postdata(Data: Iuser){
+return this.http.post(this.base_url, Data)
+  }
 }
