@@ -27,6 +27,7 @@ getAllData(){
 addNewUser(){
 this.router.navigateByUrl('adduser');
 }
+
 onUpdate(id:number){
   this.router.navigate(['updateuser', id]);
 }

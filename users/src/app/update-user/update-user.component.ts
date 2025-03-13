@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -6,19 +6,30 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-update-user',
   imports: [],
   templateUrl: './update-user.component.html',
-  styleUrl: './update-user.component.css'
+  styleUrl: './update-user.component.css',
 })
 export class UpdateUserComponent implements OnInit{
-constructor(private crud: CrudService, private activateRouter: ActivatedRoute){}
-userId!: {
-  uid: number;
-}
-ngOnInit(): void {
-this.userId = {
-  uid: this.activateRouter.snapshot.params['id']
-}
-console.table(this.userId.uid);
- //this.crud.getDataById()  
-}
 
+crud = inject (CrudService);
+activateRouter = inject(ActivatedRoute);
+
+userId!:{
+  uid:number;
+}
+  
+  
+
+  
+    
+  
+
+
+
+ngOnInit(): void {
+  this.userId = {
+   uid:this.activateRouter.snapshot.params['id']
+}
+console.info(this.userId.uid);
+
+}
 }
