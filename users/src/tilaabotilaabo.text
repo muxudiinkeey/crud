@@ -1,4 +1,25 @@
+1. waxaan daaray json server
+2.waxaan ku daray sadax user
+3. run json file db.json ok.
+4. CREATE src/app/crud.service.ts (142 bytes)
+5. ng g i Iuser
+6. CREATE src/app/iuser.ts (29 bytes)
+7.app.confic kudar : httpClient
+........................................
+8.>> 
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
+export class CrudService {
+base_url: string = "http://localhost:3000/users";
+
+  constructor(private http: HttpClient) { }
+}
+...........................................
+9.navbar.
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Users</a>
