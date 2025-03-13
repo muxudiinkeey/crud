@@ -47,3 +47,64 @@ base_url: string = "http://localhost:3000/users";
 <div class="outlet">
 <router-outlet />
 </div>
+-----------------
+ crud html
+<!-- ========== Start Section ========== -->
+
+<div class="container">
+    <h2 class="text-center m-4">
+        Angular CRUD with json-server
+    </h2>
+
+    <table class="table table-success table-string">
+  <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr  *ngFor="let data of apiData"> 
+        <td>{{data.id}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.username}}</td>
+        <td>{{data.email}}</td>
+    </tr>
+  </tbody>
+    </table>
+</div>
+<!-- ========== End Section ========== -->
+---------------------------
+<!--===================start===============-->
+import { Component, OnInit } from '@angular/core';
+import { CrudService } from '../crud.service';
+import { Iuser } from '../iuser';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-crud',
+  imports: [CommonModule],
+  templateUrl: './crud.component.html',
+  styleUrl: './crud.component.css'
+})
+export class CrudComponent implements OnInit{
+  apiData : Iuser[]= []; 
+  constructor(private crud: CrudService){}
+
+  ngOnInit(): void {
+      this.getAllData();
+  }
+
+getAllData(){
+  return this.crud.getData().subscribe(res =>{
+    this.apiData = res;
+   // console.table(this.apiData)
+  })
+}
+
+}
+
+<!--===================end===============-->
