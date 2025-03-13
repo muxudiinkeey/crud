@@ -23,7 +23,7 @@ export class AddUserComponent {
 
 
   onSubmit(){
-    console.table(this.addUserForm.value);
+    //console.table(this.addUserForm.value);
     this.crud.postdata(this.addUserForm.value).subscribe(res=>{
       this.router.navigateByUrl('crud')
     })

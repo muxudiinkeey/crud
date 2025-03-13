@@ -7,10 +7,13 @@
     <table class="table table-success table-string">
   <thead>
     <tr>
-        <th>id</th>
-        <th>Name</th>
-        <th>Username</th>
-        <th>Email</th>
+        <th class="col-2">id</th>
+        <th class="col-2">Name</th>
+        <th class="col-2">Username</th>
+        <th class="col-3">Email</th>
+        <th cclass="col-1">update</th>
+        <th class="col-1">view</th>
+        <th class="col-1">Delete</th>
     </tr>
   </thead>
 
@@ -20,6 +23,15 @@
         <td>{{data.name}}</td>
         <td>{{data.username}}</td>
         <td>{{data.email}}</td>
+        <td>
+          <button class="btn btn-warning btn-sm m-1">update</button>
+        </td>
+        <td>
+          <button class="btn btn-secondary btn-sm m-1">view</button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm m-1">delete</button>
+        </td>
     </tr>
   </tbody>
     </table>
