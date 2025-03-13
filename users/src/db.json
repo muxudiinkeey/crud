@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ali",
+      "username": "Cabdi",
+      "email": "ali@kl.com"
+    },
+    {
+      "id":2 ,
+      "name": "Aadan",
+      "username": "Muuse",
+      "email": "aadan@jh.com"
+    },
+    {
+      "id": 3,
+      "name": "Ibraahiim",
+      "username": "muuse",
+      "email": "muuse@ms.com"
+    }
+  ]
+}
