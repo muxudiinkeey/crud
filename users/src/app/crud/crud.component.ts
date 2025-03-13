@@ -19,13 +19,17 @@ export class CrudComponent implements OnInit{
   }
 
 getAllData(){
-  return this.crud.getData().subscribe(res =>{
+   this.crud.getData().subscribe(res =>{
     this.apiData = res;
-   // console.table(this.apiData)
+   
   })
 }
 addNewUser(){
 this.router.navigateByUrl('adduser');
 }
+onUpdate(id:number){
+  this.router.navigate(['updateuser', id]);
+}
+
 }
  

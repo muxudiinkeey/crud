@@ -9,7 +9,7 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'crud' },
     { path: 'crud', component: CrudComponent },
     { path: 'adduser', component: AddUserComponent },
-    { path: 'updateuser', component: UpdateUserComponent },
+    { path: 'updateuser/:id', component: UpdateUserComponent },
     { path: 'viewuser', component: ViewUserComponent },
     { path: '**', component: PageNotFoundComponent},
 ];
