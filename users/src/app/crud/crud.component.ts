@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { Iuser } from '../iuser';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crud',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CrudComponent implements OnInit{
   apiData : Iuser[]= []; 
-  constructor(private crud: CrudService){}
+  constructor(private crud: CrudService, private router: Router){}
 
   ngOnInit(): void {
       this.getAllData();
@@ -23,6 +24,8 @@ getAllData(){
    // console.table(this.apiData)
   })
 }
-
+addNewUser(){
+this.router.navigateByUrl('adduser');
+}
 }
  
