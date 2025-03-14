@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { Iuser } from '../iuser';
 import { CommonModule } from '@angular/common';
@@ -11,8 +11,13 @@ import { Router } from '@angular/router';
   styleUrl: './crud.component.css'
 })
 export class CrudComponent implements OnInit{
+  base_url: string = "http://localhost:3000/users/id";
   apiData : Iuser[]= []; 
-  constructor(private crud: CrudService, private router: Router){}
+
+router= inject(Router);
+crud = inject(CrudService)
+
+  
 
   ngOnInit(): void {
       this.getAllData();
@@ -26,6 +31,10 @@ getAllData(){
 }
 addNewUser(){
 this.router.navigateByUrl('adduser');
+}
+
+onDelete(id: number){
+return this.crud.http.delete('${this.base_url}/${id}')
 }
 
 onUpdate(id:number){

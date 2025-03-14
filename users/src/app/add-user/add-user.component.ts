@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CrudService } from '../crud.service';
@@ -12,8 +12,11 @@ import { CrudService } from '../crud.service';
 export class AddUserComponent {
 
   addUserForm : FormGroup;
+  router = inject (Router);
+  crud = inject (CrudService);
+  fb = inject(FormBuilder)
 
-  constructor(private router: Router, private fb: FormBuilder,private crud: CrudService){
+  constructor(){
     this.addUserForm = this.fb.group({
      name: [''],
      username: [''],
@@ -23,7 +26,7 @@ export class AddUserComponent {
 
 
   onSubmit(){
-    //console.table(this.addUserForm.value);
+    console.table(this.addUserForm.value);
     this.crud.postdata(this.addUserForm.value).subscribe(res=>{
       this.router.navigateByUrl('crud')
     })
